@@ -1,15 +1,5 @@
+import Image from "next/image";
 import { galerie } from "@/lib/data";
-
-const gradients = [
-  "from-gold-light via-gold to-terracotta",
-  "from-charcoal via-charcoal-light to-[#5a4a3f]",
-  "from-cream-dark via-gold-light to-gold",
-  "from-charcoal-light via-[#4a3d35] to-terracotta/60",
-  "from-gold via-gold-light to-cream-dark",
-  "from-charcoal via-[#3a322d] to-gold/50",
-  "from-terracotta via-gold to-gold-light",
-  "from-charcoal-light via-charcoal to-[#5a4632]",
-];
 
 export default function Galerie() {
   return (
@@ -26,15 +16,22 @@ export default function Galerie() {
         <div className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-4">
           {galerie.images.map((label, i) => (
             <div
-              key={label}
-              className="group relative aspect-square overflow-hidden rounded-xl shadow-sm"
+              key={label.label}
+              className={`group relative overflow-hidden rounded-xl shadow-sm ${
+                i === 1 || i === 6 ? "aspect-[3/4] sm:row-span-2 sm:aspect-auto" : "aspect-square"
+              }`}
             >
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${gradients[i % gradients.length]} transition-transform duration-500 group-hover:scale-105`}
+              <Image
+                src={label.src}
+                alt={label.label}
+                fill
+                loading="eager"
+                sizes="(min-width: 1024px) 25vw, 50vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 flex items-end bg-charcoal/0 p-3 transition-colors group-hover:bg-charcoal/30">
-                <p className="text-xs font-medium text-cream opacity-0 transition-opacity group-hover:opacity-100">
-                  {label}
+              <div className="absolute inset-0 flex items-end bg-gradient-to-t from-charcoal/65 via-charcoal/5 to-transparent p-3">
+                <p className="text-xs font-medium text-cream">
+                  {label.label}
                 </p>
               </div>
             </div>

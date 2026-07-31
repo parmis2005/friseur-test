@@ -18,8 +18,21 @@ export const hero = {
   eyebrow: "Friseur Berlin · Friedrichshain",
   headlineMain: "Haare verstehen.",
   headlineAccent: "Stil erleben.",
-  text: "Trendiger Salon im Herzen von Berlin-Friedrichshain. Leidenschaft für Haardesign, Farbe und Stil — mit Handwerk und Herz.",
+  text: "Trendiger Salon im Herzen von Berlin-Friedrichshain. Präzise Schnitte, moderne Colorationen und Beratung, die zu Ihrem Alltag passt.",
   cta: "Jetzt Termin buchen",
+};
+
+export const media = {
+  heroVideo: "https://cdn.coverr.co/videos/coverr-combing-a-man-s-hair-2623/1080p.mp4",
+  heroPoster: "https://cdn.coverr.co/videos/coverr-combing-a-man-s-hair-2623/thumbnail?width=1280",
+  salonInterior: "https://images.unsplash.com/photo-1746723378067-83a345ff3160?auto=format&fit=crop&w=1200&q=80",
+  consultation: "https://images.unsplash.com/photo-1750263147700-8bea3899f287?auto=format&fit=crop&w=1000&q=80",
+  wash: "https://images.unsplash.com/photo-1717160675643-53a7a2ebaa9f?auto=format&fit=crop&w=1000&q=80",
+  products: "https://images.unsplash.com/photo-1701976857871-a46363644519?auto=format&fit=crop&w=1200&q=80",
+  menCut: "https://images.unsplash.com/photo-1710367847973-152d445b23a6?auto=format&fit=crop&w=1000&q=80",
+  womenStyling: "https://images.unsplash.com/photo-1695527081848-1e46c06e6458?auto=format&fit=crop&w=1000&q=80",
+  barberCut: "https://images.unsplash.com/photo-1582771498000-8ad44e6c84db?auto=format&fit=crop&w=1000&q=80",
+  classicStyling: "https://images.unsplash.com/photo-1493775379751-a6c3940f3cbc?auto=format&fit=crop&w=1200&q=80",
 };
 
 export const about = {
@@ -46,14 +59,40 @@ export const galerie = {
   headlineAccent: "Blick",
   headlineEnd: "hinter die Kulissen",
   images: [
-    "Empfangsbereich",
-    "Stylingplätze",
-    "Waschbereich",
-    "Team bei der Arbeit",
-    "Colorationsecke",
-    "Loungebereich",
-    "Produktregal",
-    "Eingangsbereich",
+    { label: "Empfang & Beratung", src: media.consultation },
+    { label: "Stylingplätze", src: media.salonInterior },
+    { label: "Waschbereich", src: media.wash },
+    { label: "Coloration & Pflege", src: media.products },
+    { label: "Herren-Schnitt", src: media.menCut },
+    { label: "Finish & Styling", src: media.womenStyling },
+    { label: "Barber-Details", src: media.barberCut },
+    { label: "Salon-Atmosphäre", src: media.classicStyling },
+  ],
+};
+
+export const videoShowcase = {
+  eyebrow: "Salon in Bewegung",
+  headline: "Echte Atmosphäre statt statischer Webseite",
+  text: "Kurze Video-Momente zeigen Beratung, Handwerk und Details - genau das macht den Besuch im Studio greifbar.",
+  items: [
+    {
+      title: "Styling & Finish",
+      text: "Sanfte Bewegungen, saubere Tools und ein Look, der fertig wirkt.",
+      src: "https://cdn.coverr.co/videos/coverr-combing-a-man-s-hair-2623/1080p.mp4",
+      poster: "https://cdn.coverr.co/videos/coverr-combing-a-man-s-hair-2623/thumbnail?width=800",
+    },
+    {
+      title: "Präziser Schnitt",
+      text: "Barber-Handwerk mit ruhigem, professionellem Bildaufbau.",
+      src: "https://cdn.coverr.co/videos/coverr-cutting-hair-in-the-barbershop-6113/1080p.mp4",
+      poster: "https://cdn.coverr.co/videos/coverr-cutting-hair-in-the-barbershop-6113/thumbnail?width=800",
+    },
+    {
+      title: "Tools & Details",
+      text: "Nahaufnahmen geben der Seite mehr Tiefe und Vertrauen.",
+      src: "https://cdn.coverr.co/videos/coverr-hairdresser-s-tools-9586/1080p.mp4",
+      poster: "https://cdn.coverr.co/videos/coverr-hairdresser-s-tools-9586/thumbnail?width=800",
+    },
   ],
 };
 
@@ -175,15 +214,16 @@ export type PortfolioItem = {
   title: string;
   tag: string;
   category: "damen" | "herren";
+  image: string;
 };
 
 export const portfolio: PortfolioItem[] = [
-  { title: "Warmes Balayage", tag: "Damen · Colorationen", category: "damen" },
-  { title: "Textured Crop", tag: "Herren · Kurzhaar", category: "herren" },
-  { title: "Soft Bob", tag: "Damen · Schnitt", category: "damen" },
-  { title: "Skin Fade", tag: "Herren · Fade", category: "herren" },
-  { title: "Beach Waves", tag: "Damen · Styling", category: "damen" },
-  { title: "Klassischer Herrenschnitt", tag: "Herren · Klassisch", category: "herren" },
+  { title: "Warmes Balayage", tag: "Damen · Colorationen", category: "damen", image: media.womenStyling },
+  { title: "Textured Crop", tag: "Herren · Kurzhaar", category: "herren", image: media.menCut },
+  { title: "Soft Bob", tag: "Damen · Schnitt", category: "damen", image: media.wash },
+  { title: "Skin Fade", tag: "Herren · Fade", category: "herren", image: media.barberCut },
+  { title: "Glossy Finish", tag: "Damen · Styling", category: "damen", image: media.classicStyling },
+  { title: "Klassischer Herrenschnitt", tag: "Herren · Klassisch", category: "herren", image: media.consultation },
 ];
 
 export const bewertungenIntro = {

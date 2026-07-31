@@ -29,12 +29,21 @@ export default function Navbar() {
       }`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 lg:px-8">
-        <a href="#top" className="flex items-center gap-2 font-serif text-xl tracking-tight text-charcoal">
+        <a
+          href="#top"
+          className={`flex items-center gap-2 font-serif text-xl tracking-tight transition-colors ${
+            scrolled || open ? "text-charcoal" : "text-cream"
+          }`}
+        >
           <Scissors size={20} className="text-gold" strokeWidth={1.75} />
           {salon.name}
         </a>
 
-        <ul className="hidden items-center gap-8 text-sm font-medium text-charcoal/80 lg:flex">
+        <ul
+          className={`hidden items-center gap-8 text-sm font-medium transition-colors lg:flex ${
+            scrolled || open ? "text-charcoal/80" : "text-cream/82"
+          }`}
+        >
           {navLinks.map((link) => (
             <li key={link.href}>
               <a href={link.href} className="transition-colors hover:text-gold">
@@ -46,7 +55,11 @@ export default function Navbar() {
 
         <a
           href="#kontakt"
-          className="hidden rounded-full bg-charcoal px-5 py-2.5 text-sm font-medium text-cream transition-colors hover:bg-gold lg:inline-block"
+          className={`hidden rounded-full px-5 py-2.5 text-sm font-medium transition-colors lg:inline-block ${
+            scrolled || open
+              ? "bg-charcoal text-cream hover:bg-gold"
+              : "bg-cream text-charcoal hover:bg-gold"
+          }`}
         >
           Termin buchen
         </a>
@@ -54,7 +67,9 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex items-center justify-center rounded-full border border-charcoal/15 p-2 text-charcoal lg:hidden"
+          className={`inline-flex items-center justify-center rounded-full border p-2 transition-colors lg:hidden ${
+            scrolled || open ? "border-charcoal/15 text-charcoal" : "border-cream/25 text-cream"
+          }`}
           aria-label={open ? "Menü schließen" : "Menü öffnen"}
           aria-expanded={open}
         >

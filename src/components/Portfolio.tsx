@@ -1,16 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { portfolio, portfolioIntro } from "@/lib/data";
-
-const gradients = [
-  "from-[#8a5a3c] via-[#c08552] to-[#e6c9a0]",
-  "from-charcoal via-charcoal-light to-[#5a4a3f]",
-  "from-[#a85c3c] via-[#c98a5e] to-[#f0d9bd]",
-  "from-charcoal-light via-[#3a322d] to-gold/60",
-  "from-[#c9a468] via-[#e6c9a0] to-cream-dark",
-  "from-charcoal via-[#4a3d35] to-terracotta/50",
-];
 
 const filters = [
   { id: "alle", label: "Alle" },
@@ -51,15 +43,20 @@ export default function Portfolio() {
         </div>
 
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {items.map((item, i) => (
+          {items.map((item) => (
             <div
               key={item.title}
               className="group relative aspect-[4/5] overflow-hidden rounded-2xl shadow-sm"
             >
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${gradients[i % gradients.length]} transition-transform duration-500 group-hover:scale-105`}
+              <Image
+                src={item.image}
+                alt={item.title}
+                fill
+                loading="eager"
+                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-charcoal/10 transition-colors group-hover:bg-charcoal/25" />
+              <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/10 to-transparent transition-colors group-hover:from-charcoal/70" />
               <div className="absolute inset-x-0 bottom-0 p-5">
                 <p className="text-xs uppercase tracking-wide text-cream/70">{item.tag}</p>
                 <p className="mt-1 font-serif text-lg text-cream">{item.title}</p>
