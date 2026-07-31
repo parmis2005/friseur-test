@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Scissors } from "lucide-react";
-import { navLinks, openingHours, salon } from "@/lib/data";
+import { salon } from "@/lib/data";
 
 function InstagramIcon() {
   return (
@@ -20,91 +20,53 @@ function FacebookIcon() {
   );
 }
 
+function GoogleIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75">
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 8v4l3 2" />
+    </svg>
+  );
+}
+
 export default function Footer() {
   return (
-    <footer className="bg-charcoal text-cream/80">
-      <div className="mx-auto max-w-6xl px-6 py-14 lg:px-8">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          <div>
-            <div className="flex items-center gap-2 font-serif text-lg text-cream">
-              <Scissors size={18} className="text-gold" strokeWidth={1.75} />
-              {salon.name}
-            </div>
-            <p className="mt-3 text-sm leading-relaxed">
-              {salon.claim}
-              <br />
-              Ihr Friseursalon in {salon.city}.
-            </p>
-            <div className="mt-4 flex gap-3">
-              <a
-                href="#"
-                aria-label="Instagram"
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-cream/20 transition-colors hover:border-gold hover:text-gold"
-              >
-                <InstagramIcon />
-              </a>
-              <a
-                href="#"
-                aria-label="Facebook"
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-cream/20 transition-colors hover:border-gold hover:text-gold"
-              >
-                <FacebookIcon />
-              </a>
-            </div>
-          </div>
-
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-cream">Navigation</h3>
-            <ul className="mt-4 space-y-2 text-sm">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <a href={link.href} className="transition-colors hover:text-gold">
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-cream">Kontakt</h3>
-            <ul className="mt-4 space-y-2 text-sm">
-              <li>
-                {salon.street}
-                <br />
-                {salon.zip} {salon.cityName}
-              </li>
-              <li>
-                <a href={`tel:${salon.phoneHref}`} className="transition-colors hover:text-gold">
-                  {salon.phone}
-                </a>
-              </li>
-              <li>
-                <a href={`mailto:${salon.email}`} className="transition-colors hover:text-gold">
-                  {salon.email}
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-cream">Öffnungszeiten</h3>
-            <ul className="mt-4 space-y-2 text-sm">
-              {openingHours.map((slot) => (
-                <li key={slot.day} className="flex justify-between gap-4">
-                  <span>{slot.day}</span>
-                  <span className="text-cream/60">{slot.hours}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+    <footer className="bg-charcoal py-10 text-cream/70">
+      <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-6 sm:flex-row sm:justify-between lg:px-8">
+        <div className="flex items-center gap-2 font-serif text-lg text-cream">
+          <Scissors size={17} className="text-gold" strokeWidth={1.75} />
+          {salon.name}
         </div>
 
-        <div className="mt-12 flex flex-col gap-4 border-t border-cream/10 pt-6 text-xs text-cream/50 sm:flex-row sm:items-center sm:justify-between">
-          <p>
-            © {new Date().getFullYear()} {salon.name}. Alle Rechte vorbehalten.
-          </p>
-          <div className="flex gap-5">
+        <p className="text-xs text-cream/50">
+          © {new Date().getFullYear()} {salon.name} · {salon.street}, {salon.zip} {salon.cityName}
+        </p>
+
+        <div className="flex items-center gap-5">
+          <div className="flex gap-3">
+            <a
+              href="#"
+              aria-label="Instagram"
+              className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-cream/20 transition-colors hover:border-gold hover:text-gold"
+            >
+              <InstagramIcon />
+            </a>
+            <a
+              href="#"
+              aria-label="Facebook"
+              className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-cream/20 transition-colors hover:border-gold hover:text-gold"
+            >
+              <FacebookIcon />
+            </a>
+            <a
+              href="#"
+              aria-label="Google Bewertungen"
+              className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-cream/20 transition-colors hover:border-gold hover:text-gold"
+            >
+              <GoogleIcon />
+            </a>
+          </div>
+          <div className="flex gap-4 text-xs">
             <Link href="/impressum" className="transition-colors hover:text-gold">
               Impressum
             </Link>

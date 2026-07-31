@@ -1,11 +1,13 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
+import Galerie from "@/components/Galerie";
+import Produkte from "@/components/Produkte";
 import Services from "@/components/Services";
 import Portfolio from "@/components/Portfolio";
-import Team from "@/components/Team";
 import Testimonials from "@/components/Testimonials";
-import Contact from "@/components/Contact";
+import Kontakt from "@/components/Kontakt";
+import CtaBanner from "@/components/CtaBanner";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -15,11 +17,13 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <About />
+        <Galerie />
+        <Produkte />
         <Services />
         <Portfolio />
-        <Team />
         <Testimonials />
-        <Contact />
+        <Kontakt />
+        <CtaBanner />
       </main>
       <Footer />
     </>
