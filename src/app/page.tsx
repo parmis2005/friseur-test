@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import BookingModal from "@/components/BookingModal";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Galerie from "@/components/Galerie";
@@ -15,6 +16,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
+      <BookingModal />
       <main className="flex-1">
         <Hero />
         <About />

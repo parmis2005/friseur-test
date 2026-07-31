@@ -54,7 +54,8 @@ export default function Navbar() {
         </ul>
 
         <a
-          href="#kontakt"
+          href="#terminbuchung"
+          data-booking-trigger
           className={`hidden rounded-full px-5 py-2.5 text-sm font-medium transition-colors lg:inline-block ${
             scrolled || open
               ? "bg-charcoal text-cream hover:bg-gold"
@@ -93,7 +94,8 @@ export default function Navbar() {
             ))}
           </ul>
           <a
-            href="#kontakt"
+            href="#terminbuchung"
+            data-booking-trigger
             onClick={() => setOpen(false)}
             className="mt-4 block rounded-full bg-charcoal px-5 py-3 text-center text-sm font-medium text-cream"
           >

@@ -17,7 +17,7 @@ export default function Galerie() {
           {galerie.images.map((label, i) => (
             <div
               key={label.label}
-              className={`group relative overflow-hidden rounded-xl shadow-sm ${
+              className={`group relative overflow-hidden rounded-lg bg-charcoal shadow-sm ${
                 i === 1 || i === 6 ? "aspect-[3/4] sm:row-span-2 sm:aspect-auto" : "aspect-square"
               }`}
             >
@@ -27,10 +27,11 @@ export default function Galerie() {
                 fill
                 loading="eager"
                 sizes="(min-width: 1024px) 25vw, 50vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                className="salon-photo object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 flex items-end bg-gradient-to-t from-charcoal/65 via-charcoal/5 to-transparent p-3">
-                <p className="text-xs font-medium text-cream">
+              <div className="absolute inset-0 bg-gold/10 mix-blend-multiply" />
+              <div className="absolute inset-0 flex items-end bg-gradient-to-t from-charcoal/82 via-charcoal/20 to-transparent p-3">
+                <p className="text-xs font-medium text-cream/95">
                   {label.label}
                 </p>
               </div>

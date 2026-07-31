@@ -25,14 +25,17 @@ export const hero = {
 export const media = {
   heroVideo: "https://cdn.coverr.co/videos/coverr-combing-a-man-s-hair-2623/1080p.mp4",
   heroPoster: "https://cdn.coverr.co/videos/coverr-combing-a-man-s-hair-2623/thumbnail?width=1280",
-  salonInterior: "https://images.unsplash.com/photo-1746723378067-83a345ff3160?auto=format&fit=crop&w=1200&q=80",
-  consultation: "https://images.unsplash.com/photo-1750263147700-8bea3899f287?auto=format&fit=crop&w=1000&q=80",
+  salonInterior: "https://images.unsplash.com/photo-1782927510662-78eb8329ec34?auto=format&fit=crop&w=1200&q=80",
+  consultation: "https://images.unsplash.com/photo-1659036354224-48dd0a9a6b86?auto=format&fit=crop&w=1000&q=80",
   wash: "https://images.unsplash.com/photo-1717160675643-53a7a2ebaa9f?auto=format&fit=crop&w=1000&q=80",
-  products: "https://images.unsplash.com/photo-1701976857871-a46363644519?auto=format&fit=crop&w=1200&q=80",
-  menCut: "https://images.unsplash.com/photo-1710367847973-152d445b23a6?auto=format&fit=crop&w=1000&q=80",
-  womenStyling: "https://images.unsplash.com/photo-1695527081848-1e46c06e6458?auto=format&fit=crop&w=1000&q=80",
-  barberCut: "https://images.unsplash.com/photo-1582771498000-8ad44e6c84db?auto=format&fit=crop&w=1000&q=80",
-  classicStyling: "https://images.unsplash.com/photo-1493775379751-a6c3940f3cbc?auto=format&fit=crop&w=1200&q=80",
+  products: "https://images.unsplash.com/photo-1760647422523-f532034a49ce?auto=format&fit=crop&w=1200&q=80",
+  productShelf: "https://images.unsplash.com/photo-1760862652442-e8ff7ebdd2f8?auto=format&fit=crop&w=1000&q=80",
+  menCut: "https://images.unsplash.com/photo-1747833305853-d43937d88971?auto=format&fit=crop&w=1000&q=80",
+  womenStyling: "https://images.unsplash.com/photo-1629397683830-9805395892e8?auto=format&fit=crop&w=1000&q=80",
+  hairCare: "https://images.unsplash.com/photo-1696835196034-cf22e2b72736?auto=format&fit=crop&w=1000&q=80",
+  hairTexture: "https://images.unsplash.com/photo-1757866332364-1de5a8c2575d?auto=format&fit=crop&w=1000&q=80",
+  barberCut: "https://images.unsplash.com/photo-1747832910187-f27508ac4c60?auto=format&fit=crop&w=1000&q=80",
+  classicStyling: "https://images.unsplash.com/photo-1782927510662-78eb8329ec34?auto=format&fit=crop&w=1200&q=80",
 };
 
 export const about = {
@@ -61,8 +64,8 @@ export const galerie = {
   images: [
     { label: "Empfang & Beratung", src: media.consultation },
     { label: "Stylingplätze", src: media.salonInterior },
-    { label: "Waschbereich", src: media.wash },
-    { label: "Coloration & Pflege", src: media.products },
+    { label: "Pflege-Ritual", src: media.wash },
+    { label: "Coloration & Pflege", src: media.productShelf },
     { label: "Herren-Schnitt", src: media.menCut },
     { label: "Finish & Styling", src: media.womenStyling },
     { label: "Barber-Details", src: media.barberCut },
@@ -130,6 +133,8 @@ export const serviceTabs: ServiceTab[] = [
     label: "Damen Schnitte",
     items: [
       { name: "Waschen, Schneiden, Föhnen", description: "Beratung, Pflege & individueller Schnitt", duration: "60 Min.", price: "ab 48 €" },
+      { name: "Splissschnitt", description: "Schonende Längenpflege ohne großen Schnitt", duration: "45 Min.", price: "ab 39 €" },
+      { name: "Pony schneiden", description: "Kontur und Frische für den bestehenden Schnitt", duration: "15 Min.", price: "ab 12 €" },
       { name: "Hochsteckfrisur", description: "Für Anlässe & besondere Momente", duration: "60 Min.", price: "ab 58 €" },
     ],
   },
@@ -139,6 +144,8 @@ export const serviceTabs: ServiceTab[] = [
     items: [
       { name: "Waschen, Schneiden, Styling", description: "Klassisch oder modern, ganz nach Wunsch", duration: "30 Min.", price: "ab 29 €" },
       { name: "Fade & Skin Fade", description: "Präzisionsschnitt mit Maschine", duration: "40 Min.", price: "ab 34 €" },
+      { name: "Maschinenschnitt", description: "Gleichmäßiger Kurzhaarschnitt mit sauberer Kontur", duration: "20 Min.", price: "ab 19 €" },
+      { name: "Konturen auffrischen", description: "Nacken, Seiten und Linien sauber nacharbeiten", duration: "15 Min.", price: "ab 14 €" },
     ],
   },
   {
@@ -147,6 +154,8 @@ export const serviceTabs: ServiceTab[] = [
     items: [
       { name: "Ansatzfarbe", description: "Auffrischung von Ansatz und Länge", duration: "75 Min.", price: "ab 55 €" },
       { name: "Tonung", description: "Farbauffrischung ohne Aufhellung", duration: "45 Min.", price: "ab 38 €" },
+      { name: "Glossing", description: "Mehr Glanz und Farbtiefe für matte Längen", duration: "45 Min.", price: "ab 42 €" },
+      { name: "Farbberatung", description: "Analyse von Wunschton, Hauttyp und Pflegeaufwand", duration: "30 Min.", price: "ab 25 €" },
     ],
   },
   {
@@ -154,6 +163,8 @@ export const serviceTabs: ServiceTab[] = [
     label: "Coloration",
     items: [
       { name: "Vollcoloration", description: "Vollcoloration mit Pflegekomplex", duration: "90 Min.", price: "ab 65 €" },
+      { name: "Farbkorrektur", description: "Ausgleich unruhiger Farbergebnisse nach Beratung", duration: "180 Min.", price: "ab 149 €" },
+      { name: "Grey Blending", description: "Weiche Übergänge bei ersten grauen Haaren", duration: "90 Min.", price: "ab 72 €" },
     ],
   },
   {
@@ -161,6 +172,8 @@ export const serviceTabs: ServiceTab[] = [
     label: "Balayage",
     items: [
       { name: "Balayage", description: "Freihand-Technik für natürliche Lichtreflexe", duration: "150 Min.", price: "ab 125 €" },
+      { name: "Balayage Refresh", description: "Auffrischung von Face Frame, Glossing und Pflege", duration: "105 Min.", price: "ab 89 €" },
+      { name: "Face Framing", description: "Helle Akzente rund um das Gesicht", duration: "75 Min.", price: "ab 68 €" },
     ],
   },
   {
@@ -168,13 +181,18 @@ export const serviceTabs: ServiceTab[] = [
     label: "Highlights",
     items: [
       { name: "Strähnen / Highlights", description: "Foliensträhnen inkl. Tonung", duration: "120 Min.", price: "ab 89 €" },
+      { name: "Babylights", description: "Feine, natürliche Highlights mit weichem Verlauf", duration: "150 Min.", price: "ab 119 €" },
+      { name: "Oberkopf-Strähnen", description: "Gezielte Aufhellung im sichtbaren Bereich", duration: "90 Min.", price: "ab 69 €" },
     ],
   },
   {
-    id: "olaplex",
-    label: "Olaplex",
+    id: "pflege",
+    label: "Pflege",
     items: [
       { name: "Olaplex Treatment", description: "Intensivkur zum Strukturaufbau", duration: "20 Min.", price: "ab 24 €" },
+      { name: "Keratin Smooth Treatment", description: "Glättende Pflege für mehr Ruhe und Glanz", duration: "120 Min.", price: "ab 119 €" },
+      { name: "Kopfhaut-Ritual", description: "Reinigung, Massage und Pflege für die Kopfhaut", duration: "30 Min.", price: "ab 29 €" },
+      { name: "Intensivmaske mit Styling", description: "Pflegekur abgestimmt auf Haarstruktur und Finish", duration: "45 Min.", price: "ab 36 €" },
     ],
   },
   {
@@ -182,6 +200,17 @@ export const serviceTabs: ServiceTab[] = [
     label: "Dauerwelle",
     items: [
       { name: "Dauerwelle", description: "Langanhaltende Locken & Volumen", duration: "120 Min.", price: "ab 98 €" },
+      { name: "Volumenwelle", description: "Weiche Bewegung und Stand am Ansatz", duration: "105 Min.", price: "ab 84 €" },
+    ],
+  },
+  {
+    id: "styling",
+    label: "Styling",
+    items: [
+      { name: "Föhnen & Finish", description: "Glattes, welliges oder voluminöses Finish", duration: "30 Min.", price: "ab 28 €" },
+      { name: "Beach Waves", description: "Lockeres Styling mit Hitzeschutz und Halt", duration: "45 Min.", price: "ab 39 €" },
+      { name: "Brautstyling Probe", description: "Probetermin mit Beratung für den Hochzeitstag", duration: "90 Min.", price: "ab 85 €" },
+      { name: "Brautstyling", description: "Hochwertiges Styling für den Hochzeitstag", duration: "120 Min.", price: "ab 149 €" },
     ],
   },
   {
@@ -189,14 +218,16 @@ export const serviceTabs: ServiceTab[] = [
     label: "Kinder",
     items: [
       { name: "Kinderschnitt", description: "Bis 12 Jahre, entspannt & schnell", duration: "30 Min.", price: "ab 19 €" },
+      { name: "Teen Schnitt", description: "Für Jugendliche bis 16 Jahre", duration: "40 Min.", price: "ab 25 €" },
     ],
   },
   {
-    id: "nagel",
-    label: "Nägel",
+    id: "bart",
+    label: "Bart",
     items: [
       { name: "Bart Trim & Konturen", description: "Präzise Konturen mit heißem Handtuch", duration: "20 Min.", price: "ab 16 €" },
-      { name: "Nagelmodellage", description: "Formgebung & Pflege", duration: "45 Min.", price: "ab 32 €" },
+      { name: "Bartpflege Premium", description: "Trimmen, Konturen, Pflegeöl und warmes Tuch", duration: "35 Min.", price: "ab 29 €" },
+      { name: "Haarschnitt & Bart", description: "Kombipaket für Schnitt, Kontur und Finish", duration: "60 Min.", price: "ab 49 €" },
     ],
   },
 ];
@@ -222,7 +253,7 @@ export const portfolio: PortfolioItem[] = [
   { title: "Textured Crop", tag: "Herren · Kurzhaar", category: "herren", image: media.menCut },
   { title: "Soft Bob", tag: "Damen · Schnitt", category: "damen", image: media.wash },
   { title: "Skin Fade", tag: "Herren · Fade", category: "herren", image: media.barberCut },
-  { title: "Glossy Finish", tag: "Damen · Styling", category: "damen", image: media.classicStyling },
+  { title: "Glossy Finish", tag: "Damen · Styling", category: "damen", image: media.hairTexture },
   { title: "Klassischer Herrenschnitt", tag: "Herren · Klassisch", category: "herren", image: media.consultation },
 ];
 

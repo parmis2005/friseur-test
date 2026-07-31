@@ -54,9 +54,10 @@ export default function Portfolio() {
                 fill
                 loading="eager"
                 sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                className="salon-photo object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/10 to-transparent transition-colors group-hover:from-charcoal/70" />
+              <div className="absolute inset-0 bg-gold/10 mix-blend-multiply" />
+              <div className="absolute inset-0 bg-gradient-to-t from-charcoal/86 via-charcoal/18 to-transparent transition-colors group-hover:from-charcoal/74" />
               <div className="absolute inset-x-0 bottom-0 p-5">
                 <p className="text-xs uppercase tracking-wide text-cream/70">{item.tag}</p>
                 <p className="mt-1 font-serif text-lg text-cream">{item.title}</p>
@@ -68,7 +69,8 @@ export default function Portfolio() {
         <div className="mt-14 text-center">
           <p className="text-charcoal/70">{portfolioIntro.ctaText}</p>
           <a
-            href="#kontakt"
+            href="#terminbuchung"
+            data-booking-trigger
             className="mt-5 inline-flex items-center gap-2 rounded-full bg-charcoal px-7 py-3.5 text-sm font-medium text-cream transition-colors hover:bg-gold"
           >
             {portfolioIntro.cta}

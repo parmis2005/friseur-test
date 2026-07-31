@@ -50,7 +50,8 @@ export default function Services() {
 
         <div className="mt-10 text-center">
           <a
-            href="#kontakt"
+            href="#terminbuchung"
+            data-booking-trigger
             className="inline-flex items-center gap-2 rounded-full bg-charcoal px-7 py-3.5 text-sm font-medium text-cream transition-colors hover:bg-gold"
           >
             Termin anfragen

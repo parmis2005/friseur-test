@@ -13,8 +13,9 @@ export default function Produkte() {
             fill
             loading="eager"
             sizes="(min-width: 1024px) 50vw, 100vw"
-            className="object-cover"
+            className="salon-photo object-cover"
           />
+          <div className="absolute inset-0 bg-charcoal/12" />
         </div>
 
         <div className="bg-charcoal px-8 py-14 sm:px-12 lg:py-16">

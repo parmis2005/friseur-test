@@ -53,3 +53,7 @@ body {
 .animate-fade-up {
   animation: fade-up 0.7s ease-out both;
 }
+
+.salon-photo {
+  filter: sepia(0.18) saturate(0.78) contrast(1.06) brightness(0.9);
+}

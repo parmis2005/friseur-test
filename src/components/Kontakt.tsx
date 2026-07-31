@@ -1,17 +1,9 @@
 "use client";
 
-import { FormEvent, useState } from "react";
-import { Phone } from "lucide-react";
+import { CalendarCheck, Phone } from "lucide-react";
 import { openingHours, salon } from "@/lib/data";
 
 export default function Kontakt() {
-  const [submitted, setSubmitted] = useState(false);
-
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setSubmitted(true);
-  }
-
   return (
     <section id="kontakt" className="bg-charcoal py-20 text-cream">
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
@@ -52,47 +44,20 @@ export default function Kontakt() {
 
           <div>
             <h3 className="section-eyebrow text-xs font-semibold uppercase text-gold">Termin anfragen</h3>
-            {submitted ? (
-              <div className="mt-5 rounded-xl border border-cream/15 bg-cream/5 p-5 text-sm">
-                <p className="font-medium text-cream">Vielen Dank für Ihre Anfrage!</p>
-                <p className="mt-2 text-cream/70">
-                  Wir melden uns schnellstmöglich mit einem passenden Terminvorschlag.
-                </p>
-                <button
-                  type="button"
-                  onClick={() => setSubmitted(false)}
-                  className="mt-3 text-sm font-medium text-gold hover:underline"
-                >
-                  Neue Anfrage senden
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="mt-5 space-y-3">
-                <input
-                  type="text"
-                  required
-                  placeholder="Ihr Name"
-                  className="w-full rounded-lg border border-cream/20 bg-cream/5 px-4 py-2.5 text-sm text-cream placeholder:text-cream/40 outline-none focus:border-gold"
-                />
-                <input
-                  type="email"
-                  required
-                  placeholder="Ihre E-Mail"
-                  className="w-full rounded-lg border border-cream/20 bg-cream/5 px-4 py-2.5 text-sm text-cream placeholder:text-cream/40 outline-none focus:border-gold"
-                />
-                <textarea
-                  rows={3}
-                  placeholder="Wunschtermin oder Anliegen"
-                  className="w-full resize-none rounded-lg border border-cream/20 bg-cream/5 px-4 py-2.5 text-sm text-cream placeholder:text-cream/40 outline-none focus:border-gold"
-                />
-                <button
-                  type="submit"
-                  className="w-full rounded-full bg-gold px-6 py-3 text-sm font-medium text-charcoal transition-colors hover:bg-gold-light"
-                >
-                  Jetzt Termin buchen
-                </button>
-              </form>
-            )}
+            <div className="mt-5 rounded-xl border border-cream/15 bg-cream/5 p-5 text-sm">
+              <CalendarCheck size={28} className="text-gold" strokeWidth={1.75} />
+              <p className="mt-4 font-serif text-xl text-cream">Online Leistung und Uhrzeit wählen</p>
+              <p className="mt-2 leading-relaxed text-cream/68">
+                Buchen Sie Ihren Wunschtermin direkt über unsere Online-Terminbuchung.
+              </p>
+              <button
+                type="button"
+                data-booking-trigger
+                className="mt-5 w-full rounded-full bg-gold px-6 py-3 text-sm font-medium text-charcoal transition-colors hover:bg-gold-light"
+              >
+                Jetzt Termin buchen
+              </button>
+            </div>
           </div>
         </div>
 

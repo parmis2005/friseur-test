@@ -14,7 +14,8 @@ export default function CtaBanner() {
         <h2 className="font-serif text-3xl text-charcoal sm:text-4xl">{ctaBanner.headline}</h2>
         <p className="mt-4 text-charcoal/80">{ctaBanner.text}</p>
         <a
-          href="#kontakt"
+          href="#terminbuchung"
+          data-booking-trigger
           className="mt-8 inline-flex items-center gap-2 rounded-full bg-charcoal px-7 py-3.5 text-sm font-medium text-cream transition-colors hover:bg-charcoal-light"
         >
           {ctaBanner.cta}

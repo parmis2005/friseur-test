@@ -14,7 +14,7 @@ export default function About() {
                 fill
                 loading="eager"
                 sizes="(min-width: 1024px) 42vw, 80vw"
-                className="object-cover"
+                className="salon-photo object-cover"
               />
             </div>
             <div className="absolute bottom-0 right-0 h-[50%] w-[54%] overflow-hidden rounded-2xl border-8 border-cream shadow-xl shadow-charcoal/10">
@@ -24,7 +24,7 @@ export default function About() {
                 fill
                 loading="eager"
                 sizes="(min-width: 1024px) 28vw, 54vw"
-                className="object-cover"
+                className="salon-photo object-cover"
               />
             </div>
             <div className="absolute -bottom-5 left-6 flex h-32 w-40 flex-col justify-center rounded-2xl border border-cream/10 bg-charcoal p-4 shadow-xl sm:left-10">
