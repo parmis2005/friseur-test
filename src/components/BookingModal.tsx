@@ -7,7 +7,10 @@ import { salon, serviceTabs, type ServiceItem } from "@/lib/data";
 type BookingService = ServiceItem & {
   id: string;
   group: string;
+  audience: BookingAudience;
 };
+
+type BookingAudience = "frauen" | "maenner" | "kinder" | "styling" | "pflege";
 
 type SlotDay = {
   iso: string;
@@ -19,6 +22,21 @@ type SlotDay = {
 const stepLabels = ["Leistung wählen", "Termin auswählen", "Bestätigung"];
 const dayNames = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"];
 const monthNames = ["Jan.", "Feb.", "März", "Apr.", "Mai", "Juni", "Juli", "Aug.", "Sep.", "Okt.", "Nov.", "Dez."];
+const audienceTabs: { id: BookingAudience; label: string }[] = [
+  { id: "frauen", label: "Frauen" },
+  { id: "maenner", label: "Männer" },
+  { id: "kinder", label: "Kinder" },
+  { id: "styling", label: "Styling" },
+  { id: "pflege", label: "Pflege" },
+];
+
+function getAudience(groupId: string): BookingAudience {
+  if (groupId === "herren_schnitte" || groupId === "bart") return "maenner";
+  if (groupId === "kinder") return "kinder";
+  if (groupId === "styling") return "styling";
+  if (groupId === "pflege") return "pflege";
+  return "frauen";
+}
 
 function makeServiceId(groupId: string, name: string) {
   return `${groupId}-${name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
@@ -66,6 +84,7 @@ export default function BookingModal() {
           ...item,
           id: makeServiceId(tab.id, item.name),
           group: tab.label,
+          audience: getAudience(tab.id),
         })),
       ),
     [],
@@ -73,12 +92,21 @@ export default function BookingModal() {
 
   const [open, setOpen] = useState(false);
   const [step, setStep] = useState(1);
+  const [activeAudience, setActiveAudience] = useState<BookingAudience>("frauen");
   const [weekOffset, setWeekOffset] = useState(0);
   const [selectedServiceId, setSelectedServiceId] = useState(services[0]?.id ?? "");
   const [selectedSlot, setSelectedSlot] = useState<{ day: SlotDay; time: string } | null>(null);
   const [booked, setBooked] = useState(false);
 
   const selectedService = services.find((service) => service.id === selectedServiceId) ?? services[0]!;
+  const groupedServices = useMemo(
+    () => audienceTabs.map((tab) => ({
+      ...tab,
+      services: services.filter((service) => service.audience === tab.id),
+    })),
+    [services],
+  );
+  const visibleServices = groupedServices.find((group) => group.id === activeAudience)?.services ?? services;
   const days = useMemo(() => buildDays(weekOffset, selectedService.duration), [weekOffset, selectedService.duration]);
 
   useEffect(() => {
@@ -180,8 +208,26 @@ export default function BookingModal() {
                     Wählen Sie zuerst das Angebot. Danach zeigen wir passende freie Zeiten.
                   </p>
 
-                  <div className="mt-7 grid gap-3 sm:grid-cols-2">
-                    {services.map((service) => (
+                  <div className="mt-7 flex gap-2 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                    {groupedServices.map((group) => (
+                      <button
+                        key={group.id}
+                        type="button"
+                        onClick={() => setActiveAudience(group.id)}
+                        className={`shrink-0 rounded-full border px-4 py-2 text-sm font-semibold transition-colors ${
+                          activeAudience === group.id
+                            ? "border-charcoal bg-charcoal text-cream"
+                            : "border-charcoal/12 text-charcoal/62 hover:border-gold hover:text-gold"
+                        }`}
+                      >
+                        {group.label}
+                        <span className="ml-2 text-xs opacity-60">{group.services.length}</span>
+                      </button>
+                    ))}
+                  </div>
+
+                  <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                    {visibleServices.map((service) => (
                       <button
                         key={service.id}
                         type="button"
